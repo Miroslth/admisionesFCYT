@@ -29,8 +29,15 @@
 	}
 </script>
 
+<!-- TITULO PRINCIPAL -->
+<header class="page-header">
+	<h1>Tablón de anuncios y eventos</h1>
+	<p>Información oficial, fechas importantes y comunicados del proceso de admisión.</p>
+</header>
+
 <section class="page">
-	<!-- NAVEGACIÓN LATERAL -->
+
+	<!-- NAVEGACIÓN -->
 	<nav class="side-nav">
 		<a href="#calendario">📅 Calendario</a>
 		<a href="#destacados">🔥 Últimos anuncios</a>
@@ -85,6 +92,27 @@
 </section>
 
 <style>
+/* ---------- TÍTULO PRINCIPAL ---------- */
+.page-header {
+	max-width: 1300px;
+	margin: 3rem auto 1.5rem;
+	padding: 0 1rem;
+}
+
+.page-header h1 {
+	color: #003a8f;
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 0.4rem;
+}
+
+.page-header p {
+	color: #555;
+	font-size: 1rem;
+	max-width: 700px;
+}
+
+/* ---------- LAYOUT GENERAL ---------- */
 .page {
 	display: grid;
 	grid-template-columns: 200px 1fr;
@@ -95,7 +123,7 @@
 	background: #ffffff;
 }
 
-/* Navegación */
+/* ---------- NAVEGACIÓN ---------- */
 .side-nav {
 	position: sticky;
 	top: 2rem;
@@ -111,9 +139,10 @@
 	background: #f4f7fb;
 	padding: 0.6rem 0.8rem;
 	border-radius: 8px;
+	white-space: nowrap;
 }
 
-/* Bloques */
+/* ---------- BLOQUES ---------- */
 .block {
 	margin-bottom: 3rem;
 }
@@ -123,7 +152,7 @@
 	margin-bottom: 1.5rem;
 }
 
-/* Calendario */
+/* ---------- CALENDARIO ---------- */
 .calendar {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -145,17 +174,17 @@
 .badge {
 	display: inline-block;
 	margin-top: 0.5rem;
-	padding: 0.2rem 0.6rem;
+	padding: 0.25rem 0.7rem;
 	border-radius: 999px;
 	font-size: 0.75rem;
 }
 
 .examen {
 	background: #003a8f;
-	color: white;
+	color: #ffffff;
 }
 
-/* Anuncios */
+/* ---------- ANUNCIOS ---------- */
 .highlight {
 	background: #fff5f6;
 	padding: 2rem;
@@ -177,5 +206,37 @@
 .announcement span {
 	font-size: 0.8rem;
 	color: #666;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+	.page {
+		grid-template-columns: 1fr;
+	}
+
+	.side-nav {
+		position: relative;
+		flex-direction: row;
+		overflow-x: auto;
+		padding-bottom: 0.5rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.page-header h1 {
+		font-size: 1.6rem;
+	}
+
+	.block h2 {
+		font-size: 1.2rem;
+	}
+
+	.calendar {
+		grid-template-columns: 1fr;
+	}
+
+	.highlight {
+		padding: 1.5rem 1rem;
+	}
 }
 </style>

@@ -14,9 +14,15 @@
 	}
 </script>
 
+<!-- TÍTULO PRINCIPAL -->
+<header class="page-header">
+	<h1>Proceso de Admisión</h1>
+	<p>Fechas, modalidades, requisitos y pasos oficiales para postular a la universidad.</p>
+</header>
+
 <section class="page">
 
-	<!-- MENÚ LATERAL (SOLO DESKTOP) -->
+	<!-- NAVEGACIÓN -->
 	<nav class="side-nav">
 		<a href="#fechas">📅 Fechas</a>
 		<a href="#opciones">📝 Opciones</a>
@@ -37,7 +43,6 @@
 				<div class="card red">
 					<h4>Primera Opción</h4>
 					<p>Viernes 16 de enero de 2026</p>
-					
 				</div>
 				<div class="card red">
 					<h4>Segunda Opción</h4>
@@ -122,10 +127,7 @@
 				{/if}
 			</ul>
 
-			<button
-				class="download"
-				class:done={descargado}
-				on:click={descargarChecklist}>
+			<button class="download" class:done={descargado} on:click={descargarChecklist}>
 				{descargado ? "✔ Checklist descargado" : "⬇ Descargar checklist"}
 			</button>
 		</section>
@@ -139,10 +141,7 @@
 
 		<section id="ayuda" class="block highlight blue help">
 			<h2>¿Necesitas ayuda?</h2>
-			<p>
-				Consulta las guías paso a paso, instructivos oficiales y tutoriales
-				para completar correctamente tu proceso de admisión.
-			</p>
+			<p>Consulta las guías paso a paso, instructivos oficiales y tutoriales.</p>
 
 			<a href="/admision/tutoriales" class="help-btn">
 				Ir a Guías y Tutoriales
@@ -153,6 +152,27 @@
 </section>
 
 <style>
+/* ---------- TÍTULO PRINCIPAL ---------- */
+.page-header {
+	max-width: 1300px;
+	margin: 3rem auto 1.5rem;
+	padding: 0 1rem;
+}
+
+.page-header h1 {
+	color: #003a8f;
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 0.4rem;
+}
+
+.page-header p {
+	color: #555;
+	font-size: 1rem;
+	max-width: 700px;
+}
+
+/* ---------- LAYOUT ---------- */
 .page {
 	display: grid;
 	grid-template-columns: 220px 1fr;
@@ -162,17 +182,7 @@
 	padding: 1.5rem;
 }
 
-/* OCULTAR MENÚ EN MÓVIL */
-@media (max-width: 900px) {
-	.page {
-		grid-template-columns: 1fr;
-	}
-	.side-nav {
-		display: none;
-	}
-}
-
-/* MENÚ */
+/* ---------- NAVEGACIÓN ---------- */
 .side-nav {
 	display: flex;
 	flex-direction: column;
@@ -188,9 +198,10 @@
 	color: #003a8f;
 	font-weight: 600;
 	text-decoration: none;
+	white-space: nowrap;
 }
 
-/* BLOQUES */
+/* ---------- BLOQUES ---------- */
 .block {
 	margin-bottom: 3rem;
 }
@@ -204,7 +215,7 @@
 .yellow { background: #fff8e6; }
 .green { background: #f1fbf4; }
 
-/* CARDS */
+/* ---------- CARDS ---------- */
 .cards {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -228,7 +239,7 @@
 	color: #003a8f;
 }
 
-/* TOGGLE */
+/* ---------- TOGGLE ---------- */
 .toggle button {
 	margin-right: 0.6rem;
 	padding: 0.4rem 1rem;
@@ -243,13 +254,13 @@
 	color: white;
 }
 
-/* CHECKLIST */
+/* ---------- CHECKLIST ---------- */
 .checklist {
 	margin: 1.5rem 0;
 	padding-left: 1.2rem;
 }
 
-/* BOTÓN */
+/* ---------- BOTÓN ---------- */
 .download {
 	padding: 0.7rem 1.5rem;
 	border-radius: 999px;
@@ -264,7 +275,7 @@
 	background: #0f766e;
 }
 
-/* AYUDA */
+/* ---------- AYUDA ---------- */
 .help {
 	text-align: center;
 }
@@ -278,5 +289,33 @@
 	color: white;
 	font-weight: 600;
 	text-decoration: none;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+	.page {
+		grid-template-columns: 1fr;
+	}
+
+	.side-nav {
+		flex-direction: row;
+		overflow-x: auto;
+		padding-bottom: 0.5rem;
+		position: relative;
+	}
+}
+
+@media (max-width: 600px) {
+	.page-header h1 {
+		font-size: 1.6rem;
+	}
+
+	.block h2 {
+		font-size: 1.2rem;
+	}
+
+	.highlight {
+		padding: 1.5rem 1rem;
+	}
 }
 </style>
