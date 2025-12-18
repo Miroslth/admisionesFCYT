@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from "svelte";
+
 	let selected = null; // 'material' | 'examenes'
 	let selectedYear = "Todos";
 
@@ -6,12 +8,12 @@
 	// MATERIAL DE ESTUDIO
 	// =====================
 	const materialEstudio = [
-		{ nro: 1, asignatura: "Álgebra - Aritmética", archivo: "palgari.pdf", size: "604 KB" },
-		{ nro: 2, asignatura: "Geometría - Trigonometría", archivo: "pgeotri.pdf", size: "600 KB" },
-		{ nro: 3, asignatura: "Química", archivo: "pqui.pdf", size: "474 KB" },
-		{ nro: 4, asignatura: "Física", archivo: "pfis.pdf", size: "519 KB" },
-		{ nro: 5, asignatura: "Biología", archivo: "pbio.pdf", size: "348 KB" },
-		{ nro: 6, asignatura: "Estrategias de Aprendizaje", archivo: "pestrategias.pdf", size: "—" }
+		{ nro: 1, asignatura: "Álgebra - Aritmética", archivo: "algebra-aritmetica.pdf", size: "604 KB" },
+		{ nro: 2, asignatura: "Geometría - Trigonometría", archivo: "geometria-trigonometria.pdf", size: "600 KB" },
+		{ nro: 3, asignatura: "Química", archivo: "quimica.pdf", size: "474 KB" },
+		{ nro: 4, asignatura: "Física", archivo: "fisica.pdf", size: "519 KB" },
+		{ nro: 5, asignatura: "Biología", archivo: "biologia.pdf", size: "348 KB" },
+		{ nro: 6, asignatura: "Estrategias de Aprendizaje", archivo: "estra-aprendizaje.pdf", size: "—" }
 	];
 
 	// =====================
@@ -42,17 +44,28 @@
 		.sort((a, b) => b.year - a.year);
 
 	// =====================
-	// HUELLA VISUAL
+	// HUELLA VISUAL (SOLO SESIÓN)
 	// =====================
-	let downloaded = new Set(
-		JSON.parse(localStorage.getItem("downloadedDocs") || "[]")
-	);
+	let downloaded = new Set();
+
+	onMount(() => {
+		const saved = sessionStorage.getItem("downloadedDocs");
+		if (saved) {
+			downloaded = new Set(JSON.parse(saved));
+		}
+	});
 
 	function markDownloaded(key) {
-		downloaded.add(key);
-		localStorage.setItem("downloadedDocs", JSON.stringify([...downloaded]));
-	}
+	downloaded.add(key);
+	downloaded = new Set(downloaded); // fuerza reactividad
+
+	sessionStorage.setItem(
+		"downloadedDocs",
+		JSON.stringify([...downloaded])
+	);
+}
 </script>
+
 
 <section class="page">
 	<h1>Material de Consulta</h1>

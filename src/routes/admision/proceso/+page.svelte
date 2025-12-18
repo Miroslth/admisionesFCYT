@@ -26,10 +26,10 @@
 	<nav class="side-nav">
 		<a href="#fechas">📅 Fechas</a>
 		<a href="#opciones">📝 Opciones</a>
-		<a href="#cpu">🎓 CPU</a>
+		<a href="#cpu-psa">🎓 CPU / PSA</a>
 		<a href="#cronograma">🗂 Cronograma</a>
 		<a href="#requisitos">✅ Requisitos</a>
-		<a href="#info">ℹ Información</a>
+		<a href="#explicacion">ℹ PSA y CPU</a>
 		<a href="#ayuda">🆘 Ayuda</a>
 	</nav>
 
@@ -37,7 +37,7 @@
 	<main class="content">
 
 		<section id="fechas" class="block highlight blue">
-			<h2>Fechas del Examen de Ingreso (PSA)</h2>
+			<h2>Fechas del Examen de Ingreso PSA (Prueba de Suficiencia Académica)</h2>
 
 			<div class="cards">
 				<div class="card red">
@@ -75,11 +75,29 @@
 			</div>
 		</section>
 
-		<section id="cpu" class="block highlight yellow">
-			<h2>Curso Preuniversitario (CPU)</h2>
-			<p><strong>Duración:</strong> 4 de noviembre al 30 de diciembre de 2025</p>
-			<p><strong>Costo:</strong> Bs 1000</p>
-			<p><strong>Modalidad:</strong> Virtual con evaluaciones presenciales</p>
+		<!-- CPU + PSA EN DOS COLUMNAS -->
+		<section id="cpu-psa" class="block highlight yellow grid-two">
+			<div>
+				<h2>Curso Preuniversitario (CPU)</h2>
+				<p>
+					El <strong>CPU</strong> es una modalidad de preparación académica previa al ingreso,
+					orientada a reforzar los conocimientos necesarios antes de rendir el examen.
+				</p>
+				<p><strong>Duración:</strong> 4 de noviembre al 30 de diciembre de 2025</p>
+				<p><strong>Costo:</strong> Bs 1000</p>
+				<p><strong>Modalidad:</strong> Virtual con evaluaciones presenciales</p>
+			</div>
+
+			<div>
+				<h2>Examen de Ingreso PSA</h2>
+				<p>
+					El <strong>PSA (Prueba de Suficiencia Académica)</strong> es el examen oficial
+					que evalúa los conocimientos requeridos para el ingreso a la FCyT.
+				</p>
+				<p><strong>Lugar:</strong> Edificio Académico 2 – FCyT</p>
+				<p><strong>Asignaturas:</strong> Aritmética, Geometría, Física, Química y Biología</p>
+				<p><strong>Nota mínima:</strong> 51 puntos</p>
+			</div>
 		</section>
 
 		<section id="cronograma" class="block">
@@ -132,11 +150,21 @@
 			</button>
 		</section>
 
-		<section id="info" class="block">
-			<h2>Información del Examen PSA</h2>
-			<p><strong>Lugar:</strong> Edificio Académico 2 – FCyT</p>
-			<p><strong>Asignaturas:</strong> Aritmética, Geometría, Física, Química y Biología</p>
-			<p><strong>Nota mínima:</strong> 51 puntos</p>
+		<!-- RECUADRO EXPLICATIVO -->
+		<section id="explicacion" class="block highlight blue">
+			<h2>¿Qué es el PSA y qué es el CPU?</h2>
+
+			<p>
+				El <strong>PSA (Prueba de Suficiencia Académica)</strong> es el examen de ingreso
+				que evalúa los conocimientos académicos necesarios para acceder a la
+				Facultad de Ciencias y Tecnología.
+			</p>
+
+			<p>
+				El <strong>CPU (Curso Preuniversitario)</strong> es una alternativa de preparación
+				que permite reforzar contenidos y familiarizar al postulante con el proceso
+				de admisión antes de rendir el examen.
+			</p>
 		</section>
 
 		<section id="ayuda" class="block highlight blue help">
@@ -214,6 +242,13 @@
 .blue { background: #f4f8ff; }
 .yellow { background: #fff8e6; }
 .green { background: #f1fbf4; }
+
+/* ---------- GRID DOS COLUMNAS ---------- */
+.grid-two {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 2rem;
+}
 
 /* ---------- CARDS ---------- */
 .cards {
